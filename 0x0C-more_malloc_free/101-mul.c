@@ -3,11 +3,23 @@
 #include <unistd.h>
 
 
+int _putchar(char c);
 int _strlen(char *str);
 char *create_array(int size);
 char *_start_digit(char *str);
 void mul_digit(char *prod, char *mult, int digit, int zeroes);
 void add_digits(char *final_prod, char *next_prod, int next_len);
+
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ * Return: On success 1.
+ */
+int _putchar(char c)
+{
+return (write(1, &c, 1));
+}
 
 
 /**
@@ -50,7 +62,7 @@ char *create_array(int size)
 }
 
 /**
- * _start_digit - Iterate through  string of numbers containing leading zeroes.
+ * _start_digit - Iterates through a string of numbers containing leading zeroes until a non-zero number.
  * @str: The string of numbers to be iterate through.
  *
  * Return: A pointer to the next non-zero element.
@@ -212,9 +224,9 @@ int main(int argc, char *argv[])
 	for (index = 0; final_prod[index]; index++)
 	{
 		if (final_prod[index] != 'x')
-			putchar(final_prod[index]);
+			_putchar(final_prod[index]);
 	}
-	putchar('\n');
+	_putchar('\n');
 
 	free(next_prod);
 	free(final_prod);
